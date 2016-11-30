@@ -33,9 +33,8 @@ public class login_page {
 	public void setPassword(String password) {
 		this.password.sendKeys(password);
 	}
-	public String get_title(){
+	public void login_wait(){
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-		return driver.getCurrentUrl();
 	}
 	public void login(){
 		login.click();

@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 public class service_now_commons {
@@ -23,18 +22,16 @@ public class service_now_commons {
 		}
 		
 		else if(browser.equals("firefox")){
+			//System.setProperty("webdriver.gecko.driver","C:\\Users\\bharadwaj\\Desktop\\geckodriver.exe");
 			driver=new FirefoxDriver();
 		}
-		else{
-			DesiredCapabilities capability = DesiredCapabilities.phantomjs();
-			driver=new PhantomJSDriver(capability); 
-		}
+		
 			
 		return driver;
 
 	}
 	public static  WebDriver getconn(){
-		driver=select_driver("remote");
+		driver=select_driver("firefox");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(url);
